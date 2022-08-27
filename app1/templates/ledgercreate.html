@@ -30,121 +30,199 @@
                     </div>
                    
                     <div class="col-md-1" style="background-color: rgb(103, 175, 220);">
-                        <!-- <a href="{% url 'base' %}"><button type="button" class="btn-close justify-content-end"></button></a> -->
+                        
                     </div>
                 </div>
-                <div class="row mt-5">
-                    <div class="col-md-6">
-                        <label for="">Name:</label>
+                <form action="{% url 'createledgerviews' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <label for="">Name:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="name" required>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control">
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label for="">(Alias):</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="alias" required>
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6">
-                        <label for="">(Alias):</label>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label for="">Under:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="primary-text" onfocus="showList()" autocomplete="off" value="Primary" name="under">
+                            <!-- <select  id="" class="form-control" name="under">
+                                
+                                {% for i in data %}
+                                <option value="{{ i.id }}">{{ i.gname }}</option>
+                                {% endfor %}
+                            </select> -->
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control">
+                    <div class="row mt-2">
+                        <h5 class="d-flex justify-content-center"> <u> Mailing Details</u> </h5>
                     </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6">
-                        <label for="">Under:</label>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label for="">Name:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="mname" required>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <select name="" id="" class="form-control">
-                            <option value="">Primary</option>
-                            <option value="">second</option>
-                        </select>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label for="">Address:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="address" required>
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-2">
-                    <h5 class="d-flex justify-content-center"> <u> Mailing Details</u> </h5>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6">
-                        <label for="">Name:</label>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label for="">State:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="state-text" onfocus="showstate()" autocomplete="off" value="" name="state">
+                            <!-- <select  id="" class="form-control" name="state">
+                                <option value="">Kerala</option>
+                                <option value=""></option>
+                            </select> -->
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control">
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label for="">Country:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="country-text" onfocus="showCountry()" autocomplete="off" value="" name="contry">
+                            <!-- <select  id="" class="form-control" name="contry">
+                                <option value="">India</option>
+                                <option value="">No</option>
+                            </select> -->
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6">
-                        <label for="">Address:</label>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label for="">Pincode:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="pincode" required>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control">
+                    <div class="row mt-2">
+                        <h5 class="d-flex justify-content-center"> <u> Banking Details</u> </h5>
                     </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6">
-                        <label for="">State:</label>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label for="">Providing Bank Details:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="bank" required>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <select name="" id="" class="form-control">
-                            <option value="">Kerala</option>
-                            <option value=""></option>
-                        </select>
+                    <div class="row mt-2">
+                        <h5 class="d-flex justify-content-center"> <u> Tax Registration Details</u> </h5>
                     </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6">
-                        <label for="">Country::</label>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label for="">PAN/IT No:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="pan" required>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <select name="" id="" class="form-control">
-                            <option value="">India</option>
-                            <option value="">No</option>
-                        </select>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label for="">Registration Type:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="registrations" required>
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6">
-                        <label for="">Pincode:</label>
+                    <div class="row mt-4 mb-4  d-flex justify-content-center">
+                        <button type="submit" class="form-control text-white" style="background-color: rgb(103, 175, 220);border:1px solid black; width:250px;"> Submit </button>
                     </div>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control">
+                    <div class="col-md-4">
                     </div>
-                </div>
-                <div class="row mt-2">
-                    <h5 class="d-flex justify-content-center"> <u> Banking Details</u> </h5>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6">
-                        <label for="">Providing Bank Details:</label>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="row mt-2">
-                    <h5 class="d-flex justify-content-center"> <u> Tax Registration Details</u> </h5>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6">
-                        <label for="">PAN/IT No:</label>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6">
-                        <label for="">Registration Type::</label>
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="row mt-4 mb-4  d-flex justify-content-center">
-                    <button type="submit" class="form-control text-white" style="background-color: rgb(103, 175, 220);border:1px solid black; width:250px;"> Submit </button>
-                </div>
-                <div class="col-md-4">
-                </div>
+                </form>
             </div>
+            <!-- under -->
+
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="form-popup" id="list-div" style="background-color:rgba(33,57,77,255);color:#fff; visibility: hidden;">
+                        <h6 style="background-color:rgb(17, 169, 240) ;color:white">List of Stock Groups</h6>
+                        <a href="" class="float-right">create</a><br>
+                        <div class="text-center text-white">
+                            {% for i in data %}
+                            <div onclick="hideList('{{i.lname}}')">{{i.lname}}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function showList() {
+                        document.getElementById("list-div").style.visibility = "visible";
+                    }
+                    function hideList(valueDIv) {
+                        document.getElementById("primary-text").value = valueDIv;
+                        document.getElementById("list-div").style.visibility = "hidden";
+                    }
+                </script>
+    
+                <!-- under finish -->
+                <!-- State -->
+                <div class="row">
+                    <div class="form-popup" id="list-state-div" style="background-color:rgba(33,57,77,255);color:#fff; visibility: hidden;">
+                        <h6 style="background-color:rgb(17, 169, 240) ;color:white">List of State</h6>
+                        <a href="" class="float-right">create</a><br>
+                        <div class="text-center text-white">
+                            {% for i in st %}     
+                            <div onclick="hidestate('{{i.sname}}')">{{i.sname}}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function showstate() {
+                        document.getElementById("list-state-div").style.visibility = "visible";
+                    }
+                    function hidestate(valueDIv) {
+                        document.getElementById("state-text").value = valueDIv;
+                        document.getElementById("list-state-div").style.visibility = "hidden";
+                    }
+                </script>
+                <!-- statefinish -->
+                <!-- country -->
+                <div class="row">
+                    <div class="form-popup" id="list-country-div" style="background-color:rgba(33,57,77,255);color:#fff; visibility: hidden;">
+                        <h6 style="background-color:rgb(17, 169, 240) ;color:white">List of Countries</h6>
+                        <a href="" class="float-right">create</a><br>
+                        <div class="text-center text-white">
+                            {% for i in cnt %}
+                                <div onclick="hidecountry('{{i.name}}')">{{i.name}}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function showCountry() {
+                        document.getElementById("list-country-div").style.visibility = "visible";
+                    }
+                    function hidecountry(valueDIv) {
+                        document.getElementById("country-text").value = valueDIv;
+                        document.getElementById("list-country-div").style.visibility = "hidden";
+                    }
+                </script>
+                <!-- country finish -->
+            </div>    
         </div>
     </div>
 </div>

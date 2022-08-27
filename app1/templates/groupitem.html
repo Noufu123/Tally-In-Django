@@ -30,11 +30,11 @@
           <div class="table-responsive">
             <table class="table table-bordered table-sm border-dark" style="background-color: rgba(33,57,77,255);color:#fff;">
               <tr class="border-1">
-                <th colspan="4"  class="border-0">Stock Item : HDD</th>
+                <th colspan="4"  class="border-0">Stock Item :{{ ndata.perticular }}</th>
                 <th colspan="4" class="text-end border-0">For : 1-Apr-2022</th>
               </tr>
               <tr class="border-1">
-                <th colspan="4"  class="border-0">Under Group: ANN ELEGANT</th>
+                <th colspan="4"  class="border-0">Under Group: {{ ndata.pert.gname }}</th>
                 <th colspan="4" class="text-end border-0"  ></th>
               </tr>
                 <tr>
@@ -49,7 +49,7 @@
                 </tr>
               <tbody>
                 <tr>
-                  <td rowspan="3" class="align-middle">1-Apr-2022</td>
+                  <td></td>
                   <td>Purchase</td>
                   <td></td>
                   <td></td>
@@ -58,23 +58,59 @@
                   <td></td>
                   <td></td>
                 </tr>
+                {% for i in data %}
                 <tr>
-                  <td>ANN ELEGANT</td>
-                  <td>2Nos</td>
-                  <td>4,000.00/Nos</td>
-                  <td>8,000.00</td>
+                  <td>{{ i.date }}</td>
+                  <td>{{ i.name }}</td>
+                  <td>{{ i.quantity }}</td>
+                  <td>{{ i.basicrate }}</td>
+                  <td>{{ i.basicvalue }}</td>
+                  <td>{{ i.addlcost }}</td>
+                  <td>{{ i.totalvalue }}</td>
+                  <td>{{ i.efsrate }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                  <td></td>
+                  <td>Total</td>
+                  <td>{{ sum1 }}</td>
+                  <td>{{ sum2 }}</td>
+                  <td>{{ sum3 }}</td>
+                  <td>{{ sum4 }}</td>
+                  <td>{{ sum5 }}</td>
+                  <td>{{ sum6 }}</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>Sales</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
                 </tr>
+                {% for i in sdata %}
                 <tr>
+                  <td>{{ i.date }}</td>
+                  <td>{{ i.name }}</td>
+                  <td>{{ i.quantity }}</td>
+                  <td>{{ i.basicrate }}</td>
+                  <td>{{ i.basicvalue }}</td>
+                  <td>{{ i.addlcost }}</td>
+                  <td>{{ i.totalvalue }}</td>
+                  <td>{{ i.efsrate }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                  <td></td>
                   <td>Total</td>
-                  <td>2Nos</td>
-                  <td>4,000.00/Nos</td>
-                  <td>8,000.00</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>{{ sum7 }}</td>
+                  <td>{{ sum8 }}</td>
+                  <td>{{ sum9 }}</td>
+                  <td>{{ sum10 }}</td>
+                  <td>{{ sum11 }}</td>
+                  <td>{{ sum12 }}</td>
                 </tr>
               </tbody>
             </table>

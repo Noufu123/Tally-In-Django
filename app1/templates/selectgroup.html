@@ -28,12 +28,16 @@
             <div class="row ms-1" >
                 <a href="{% url 'creategroup' %}"  class="text-end text-white" style="text-decoration: none;">Create</a>
             </div>
-            <div class="row ms-1">
-                Acer
+            <div class="row ms-1 py-1">
+                Primary
             </div>
-            <div class="row ms-1 mb-2">
-                Hp
+            {% for i in data %}
+            <div class="row ms-1" >
+                <a href="{% url 'groupanalisys' i.id %}" class="text-decoration-none text-white py-1">
+                    {{ i.gname }}
+                </a>
             </div>
+            {% endfor %}
         </div>
     </div>
 </div>

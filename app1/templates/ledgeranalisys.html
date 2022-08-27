@@ -30,7 +30,7 @@
                           <table class="table table-bordered table-sm border-dark" style="background-color: rgba(33,57,77,255);color:#fff;">
                               <tr>
                                 <td rowspan="3"  class="align-middle">Particular</td>
-                                <td colspan="6" class="text-center"><h5>ABC PVT.LTD</h5>For 1-Apr-2022</td>
+                                <td colspan="6" class="text-center"><h5>{{ data.lpert.lname }}</h5>For 1-Apr-2022</td>
                               </tr>
                               <tr>
                                 <td colspan="3" class="text-center">Purchases</td>
@@ -45,41 +45,25 @@
                                 <td>Quantity</td>
                               </tr>
                               <tbody>
-                                  <tr>
-                                      <td>Acer</td>
-                                      <td>15</td>
-                                      <td>12</td>
-                                      <td>1140</td>
-                                      <td></td>
-                                      <td></td>
-                                      <td></td>
-                                  </tr>
-                                  <tr>
-                                      <td>Acer</td>
-                                      <td>15</td>
-                                      <td>12</td>
-                                      <td>1140</td>
-                                      <td></td>
-                                      <td></td>
-                                      <td></td>
-                                  </tr>
-                                  <tr>
-                                      <td>Acer</td>
-                                      <td></td>
-                                      <td></td>
-                                      <td></td>
-                                      <td>15</td>
-                                      <td>12</td>
-                                      <td>1140</td>
-                                  </tr>
+                                  {% for i in data %}
+                                    <tr>
+                                        <td><a href="{% url 'ledgeritem' i.id %}">{{ i.lperticular }}</a></td>
+                                        <td>{{ i.lpquatity }}</td>
+                                        <td>{{ i.lprate }}</td>
+                                        <td>{{ i.lpvalue }}</td>
+                                        <td>{{ i.lsquatity }}</td>
+                                        <td>{{ i.lsrate }}</td>
+                                        <td>{{ i.svalue }}</td>
+                                    </tr>
+                                  {% endfor %}
                                   <tr>
                                       <td>Grand Total</td>
-                                      <td>24</td>
-                                      <td>30</td>
-                                      <td>2280</td>
-                                      <td>15</td>
-                                      <td>12</td>
-                                      <td>1140</td>
+                                      <td></td>
+                                      <td></td>
+                                      <td>{{ sum1 }}</td>
+                                      <td></td>
+                                      <td></td>
+                                      <td>{{ sum2 }}</td>
                                   </tr>
                               </tbody>
                           </table>

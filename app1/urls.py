@@ -1,3 +1,4 @@
+from unicodedata import name
 from django.urls import path,include
 from.import views
 
@@ -15,13 +16,24 @@ urlpatterns = [
     path('voucher',views.voucher,name='voucher'),
     path('vouchpage',views.vouchpage,name='vouchpage'),
     path('grouppage',views.grouppage,name='grouppage'),
-    path('ledgerpage',views.ledgerpage,name="ledgerpage"),
-    path('groupanalisys',views.groupanalisys,name="groupanalisys"),
+
+    #Html pages
+
+    path('ledgerpage/<int:pk>',views.ledgerpage,name="ledgerpage"),
+    path('groupanalisys/<int:pk>',views.groupanalisys,name="groupanalisys"),
+    # path('groupanalisys',views.groupanalisys,name="groupanalisys"),
     path('selectledgerpage',views.selectledgerpage,name="selectledgerpage"),
-    path('groupitem',views.groupitem,name="groupitem"),
-    path('ledgeritem',views.ledgeritem,name="ledgeritem"),
+    path('groupitem/<int:pk>',views.groupitem,name="groupitem"),
+    path('ledgeritem/<int:pk>',views.ledgeritem,name="ledgeritem"),
     path('creategroup',views.creategroup,name="creategroup"),
     path('ledgercreate',views.ledgercreate,name="ledgercreate"),
+
+    #views pages
+
+    path('creategroupviews',views.creategroupviews,name="creategroupviews"),
+    path('createledgerviews',views.createledgerviews,name="createledgerviews")
+
+
 
 
 ]
